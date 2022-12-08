@@ -1,0 +1,17 @@
+<h2>My Fav Things</h2>
+<ul class="childs">
+  <li *ngFor="let c of child">
+    <button [class.selected]="c === selectedChild" type="button" (click)="onSelect(c)">
+      <span class="name">{{c.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedChild">
+  <h2>{{selectedChild.name | uppercase}} Details</h2>
+  <div>id: {{selectedChild.id}}</div>
+  <div>
+    <label for="child-name">Child name: </label>
+    <input id="Child-name" [(ngModel)]="selectedChild.name" placeholder="name">
+  </div>
+</div>
